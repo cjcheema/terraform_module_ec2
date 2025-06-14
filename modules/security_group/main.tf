@@ -1,6 +1,5 @@
 resource "aws_security_group" "web_sg" {
-  for_each = var.web_sg_configs
-
+  for_each    = var.web_sg_configs
   name        = each.value.name
   description = "Security Group created for ${each.key}"
   vpc_id      = var.vpc_id
