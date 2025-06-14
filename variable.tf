@@ -36,11 +36,6 @@ variable "instance_type" {
   type        = string
 }
 
-variable "instance_profile_name" {
-  description = "The name of the IAM instance profile to associate with the EC2 instance"
-  type        = string
-}
-
 variable "key_name" {
   description = "The name of the key pair to use for SSH access to the EC2 instance"
   type        = string
