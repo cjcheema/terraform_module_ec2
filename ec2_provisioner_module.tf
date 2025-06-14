@@ -1,7 +1,16 @@
 module "ec2_ssm_provisioner" {
   source = "./modules/ssm"
   ssm_role_name         = var.ssm_role_name
-  ssm_assume_role_json  = var.ssm_assume_role_json
+  ssm_assume_role_json  = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Action = "sts:AssumeRole",
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      },
+      Effect = "Allow"
+    }]
+  })
 }
 
 module "security_group" {

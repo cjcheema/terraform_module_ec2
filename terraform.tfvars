@@ -10,16 +10,16 @@ ami_id = "ami-0e35ddab05955cf57"  # Replace with your actual AMI ID
 instance_type = "t3.nano"  # Replace with your desired instance type
 key_name = "cjkeypair"  # Replace with your actual key pair name
 ssm_role_name = "ec2_ssm_role"  # Replace with your actual SSM role name
-ssm_assume_role_json = jsonencode({
-    Version = "2012-10-17",
-    Statement = [{
-      Action = "sts:AssumeRole",
-      Principal = {
-        Service = "ec2.amazonaws.com"
-      },
-      Effect = "Allow"
-    }]
-  })
+# ssm_assume_role_json = jsonencode({
+#     Version = "2012-10-17",
+#     Statement = [{
+#       Action = "sts:AssumeRole",
+#       Principal = {
+#         Service = "ec2.amazonaws.com"
+#       },
+#       Effect = "Allow"
+#     }]
+#   })
 
 web_sg_configs = { # Security group configurations
   web_sg = {
