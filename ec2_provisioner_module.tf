@@ -24,7 +24,7 @@ module "ec2_instance" {
   instance_count        = var.instance_count
   ami_id                = var.ami_id
   instance_type         = var.instance_type   
-  security_group_id     = module.security_group.web_sg.*.id
+  security_group_id     = module.security_group.web_sg.id
   instance_profile_name = module.ec2_ssm_provisioner.ssm_role_name
   key_name              = var.key_name
   instance_name         = var.instance_name
