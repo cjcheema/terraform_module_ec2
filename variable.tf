@@ -1,3 +1,29 @@
+variable "ssm_role_name" {
+  description = "The name of the IAM role for SSM"
+  type        = string  
+}
+variable "ssm_assume_role_json" {
+  description = "The assume role policy document for SSM"
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "The ID of the VPC where the security groups will be created."
+  type        = string
+  default = {
+    description = "Default VPC ID"
+  }
+  
+}
+
+variable "web_sg_configs" {
+  description = "Map of security group configurations."
+  type        = map(object({
+    name = string
+    port = number
+  }))
+}
+
 variable "instance_count" {
   description = "Number of EC2 instances to create"
   type        = number  
@@ -10,11 +36,6 @@ variable "ami_id" {
 
 variable "instance_type" {
   description = "The type of EC2 instance"
-  type        = string
-}
-
-variable "security_group_id" {
-  description = "The ID of the security group to associate with the EC2 instance"
   type        = string
 }
 
