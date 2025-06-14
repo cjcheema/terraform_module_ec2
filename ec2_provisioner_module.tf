@@ -21,10 +21,11 @@ module "security_group" {
 
 module "ec2_instance" {
   source = "./modules/ec2_instance"
+  for_each = module.security_group.web_sg
   instance_count        = var.instance_count
   ami_id                = var.ami_id
   instance_type         = var.instance_type   
-  security_group_id     = module.security_group.web_sg.id
+  security_group_id     = each.key
   instance_profile_name = module.ec2_ssm_provisioner.ssm_role_name
   key_name              = var.key_name
   instance_name         = var.instance_name
