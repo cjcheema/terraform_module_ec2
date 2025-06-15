@@ -9,7 +9,7 @@ instance_count = 2
 ami_id = "ami-0e35ddab05955cf57"  # Replace with your actual AMI ID
 instance_type = "t3.nano"  # Replace with your desired instance type
 key_name = "cjkeypair"  # Replace with your actual key pair name
-ssm_role_name = "EC2-SSM-ROLE"  # Replace with your actual SSM role name
+ssm_role_name = "WEB-EC2-SSM-ROLE"  # Replace with your actual SSM role name
 # ssm_assume_role_json = jsonencode({
 #     Version = "2012-10-17",
 #     Statement = [{
@@ -20,6 +20,7 @@ ssm_role_name = "EC2-SSM-ROLE"  # Replace with your actual SSM role name
 #       Effect = "Allow"
 #     }]
 #   })
+ssm_profile_name      = "WEB-EC2-SSM-Profile" # Replace with your actual SSM profile name
 
 web_sg_configs = { # Security group configurations
   web_sg = {

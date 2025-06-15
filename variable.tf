@@ -7,6 +7,11 @@ variable "ssm_role_name" {
 #   type        = string
 # }
 
+variable "ssm_profile_name" {
+  description = "The name of the IAM instance profile for SSM"
+  type        = string
+}
+
 variable "vpc_id" {
   description = "The ID of the VPC where the security groups will be created."
   type        = string
