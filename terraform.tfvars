@@ -20,7 +20,7 @@ ssm_role_name = "WEB-EC2-SSM-ROLE"  # Replace with your actual SSM role name
 #       Effect = "Allow"
 #     }]
 #   })
-ssm_profile_name      = "WEB-EC2-SSM-Profile" # Replace with your actual SSM profile name
+ssm_profile_name = "WEB-EC2-SSM-Profile" # Replace with your actual SSM profile name
 
 web_sg_configs = { # Security group configurations
   web_sg = {

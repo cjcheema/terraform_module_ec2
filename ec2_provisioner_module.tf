@@ -11,6 +11,7 @@ module "ec2_ssm_provisioner" {
       Effect = "Allow"
     }]
   })
+  ssm_profile_name = var.ssm_profile_name
 }
 
 module "security_group" {
@@ -25,8 +26,19 @@ module "ec2_instance" {
   instance_count        = var.instance_count
   ami_id                = var.ami_id
   instance_type         = var.instance_type   
-  security_group_id     = each.key
-  instance_profile_name = module.ec2_ssm_provisioner.ssm_role_name
+  security_group_id     = each.value # Use the security group ID from the security group module
+  instance_profile_name = module.ec2_ssm_provisioner.ssm_profile_name
   key_name              = var.key_name
   instance_name         = var.instance_name
 }
+
+# module "ec2_instance" {
+#   source = "./modules/ec2_instance"  
+#   instance_count        = var.instance_count
+#   ami_id                = var.ami_id
+#   instance_type         = var.instance_type   
+#   security_group_id     = module.security_group.web_sg # Use the security group ID from the security group module
+#   instance_profile_name = module.ec2_ssm_provisioner.ssm_profile_name
+#   key_name              = var.key_name
+#   instance_name         = var.instance_name
+# }

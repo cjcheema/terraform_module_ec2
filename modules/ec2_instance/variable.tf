@@ -18,6 +18,10 @@ variable "security_group_id" {
   type        = string
 }
 
+# variable "security_group_id" {
+#   type = map(string)
+# }
+
 variable "instance_profile_name" {
   description = "The name of the IAM instance profile to associate with the EC2 instance"
   type        = string
